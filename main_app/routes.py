@@ -1,3 +1,4 @@
+
 from flask import flash, redirect, render_template, request
 from flask.helpers import url_for
 from flask_login import current_user, login_required, login_user, logout_user
@@ -8,6 +9,14 @@ from main_app.forms import LoginForm, RegistrationForm
 from main_app.models import User
 
 from main_app import db
+
+from flask import flash, redirect, render_template
+from flask.helpers import url_for
+
+from main_app import app
+from main_app.forms import LoginForm
+
+
 
 @app.route('/')
 @app.route('/index')
@@ -50,6 +59,7 @@ def login():
 def register():
     if current_user.is_authenticated():
         return redirect(url_for('index'))
+
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -64,3 +74,4 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
