@@ -8,8 +8,8 @@ from flask_login import LoginManager
 app = Flask(__name__)
 app.config.from_object(Config)
 login = LoginManager(app)
-login.login_view = 'login'
+login.login_view = "login"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from main_app import routes, models 
+from main_app import routes, models
