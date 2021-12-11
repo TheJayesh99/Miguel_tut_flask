@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), unique=True, index=True)
     email = db.Column(db.String(128), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    Posts = db.relationship("Posts", backref="author", lazy="dynamic")
+    posts = db.relationship("Posts", backref="author", lazy="dynamic")
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
