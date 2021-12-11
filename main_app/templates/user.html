@@ -18,15 +18,18 @@
                 {{ form.hidden_tag() }}
                 {{ form.submit(value='Follow') }}
             </form>
+
             </p>
             {% else %}
             <p>
+
 
             <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
 
                 {{ form.hidden_tag() }}
                 {{ form.submit(value='Unfollow') }}
             </form>
+
             </p>
             {% endif %}
         </td>
@@ -42,4 +45,5 @@
             {% if next_url %}
             <a href="{{ next_url }}">Older posts</a>
             {% endif %}
+
 {% endblock %}

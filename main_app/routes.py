@@ -4,8 +4,10 @@ from flask.helpers import url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.urls import url_parse
 
+
 from main_app.forms import EditProfileForm, EmptyForm, LoginForm, PostForm, RegistrationForm
 from main_app.models import Posts, User
+
 
 from main_app import db
 
