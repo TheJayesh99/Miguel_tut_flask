@@ -4,7 +4,6 @@ from flask.helpers import url_for
 from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.urls import url_parse
 
-from main_app import app
 from main_app.forms import EditProfileForm, EmptyForm, LoginForm, RegistrationForm
 from main_app.models import User
 
@@ -77,7 +76,9 @@ def user(username):
         {"author": user, "body": "Test post #1"},
         {"author": user, "body": "Test post #2"},
     ]
-    return render_template("user.html", params=locals())
+    form = EmptyForm()
+    kwargs = locals()
+    return render_template("user.html", **kwargs)
 
 
 @app.before_request
