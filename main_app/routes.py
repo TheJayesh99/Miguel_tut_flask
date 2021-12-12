@@ -9,7 +9,6 @@ from main_app.email import send_password_reset_email
 from main_app.forms import EditProfileForm, EmptyForm, LoginForm, PostForm, RegistrationForm, ResetPasswordForm, ResetPasswordRequestForm
 from main_app.models import Posts, User
 
-
 from main_app import db
 
 from flask import flash, redirect, render_template
@@ -202,4 +201,5 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)                        
+
 
