@@ -21,6 +21,7 @@ import os
 from logging.handlers import RotatingFileHandler
 
 from main_app import errors, models, routes
+
 if not app.debug:
 
     if not os.path.exists("logs"):
